@@ -190,14 +190,14 @@ func getConfigurationForService(opts ForwardIPOpts) *ServiceConfiguration {
 }
 
 func blockNonLoopbackIPs(f *ForwardConfiguration) {
-	if ip, err := ipFromString(f.BaseUnreservedIP); err != nil || !ip.IsLoopback() {
-		panic("BaseUnreservedIP is not in the range 127.0.0.0/8")
-	}
-	for _, svcCfg := range f.ServiceConfigurations {
-		if ip, err := ipFromString(svcCfg.IP); err != nil || !ip.IsLoopback() {
-			log.Fatal(fmt.Sprintf("IP %s for %s is not in the range 127.0.0.0/8", svcCfg.IP, svcCfg.Name))
-		}
-	}
+	// if ip, err := ipFromString(f.BaseUnreservedIP); err != nil || !ip.IsLoopback() {
+	// 	panic("BaseUnreservedIP is not in the range 127.0.0.0/8")
+	// }
+	// for _, svcCfg := range f.ServiceConfigurations {
+	// 	if ip, err := ipFromString(svcCfg.IP); err != nil || !ip.IsLoopback() {
+	// 		log.Fatal(fmt.Sprintf("IP %s for %s is not in the range 127.0.0.0/8", svcCfg.IP, svcCfg.Name))
+	// 	}
+	// }
 }
 
 func notifyOfDuplicateIPReservations(f *ForwardConfiguration) {

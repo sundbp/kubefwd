@@ -317,7 +317,7 @@ func (pfo *PortForwardOpts) AddHosts() {
 
 		if pfo.Domain != "" {
 			pfo.addHost(fmt.Sprintf(
-				"%s.%s.svc.cluster.%s",
+				"%s.%s.svc.%s",
 				pfo.Service,
 				pfo.Namespace,
 				pfo.Domain,
@@ -341,7 +341,7 @@ func (pfo *PortForwardOpts) AddHosts() {
 	))
 
 	pfo.addHost(fmt.Sprintf(
-		"%s.%s.svc.cluster.%s",
+		"%s.%s.svc.%s",
 		pfo.Service,
 		pfo.Namespace,
 		pfo.Context,
